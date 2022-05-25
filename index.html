@@ -4,9 +4,71 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/styles.css">
+    <title>Weather Dashboard</title>
 </head>
 <body>
-    
+    <header class="container.fluid d-flex justify-content-center align-items-center text-center h1 header">Weather Dashboard</header>
+    <main class=" height-100% container-fluid">
+        <section class="row">
+            <div class="col-12 col-md-3 text-center">
+                <h3>Search By City:</h3>
+                <input id="search-by-city" class="m-2 col-8" type="text" autofocus="true" placeholder="Enter a City">
+                <button id="search-btn" class="mt-2 col-8 btn btn-block btn-info">Search</button>
+                <div class="mt-4 border-bottom border-secondary border-4"></div>
+                <span id="search-history" class=" text-center " >
+                    <button id="search-history-btn" class="col-8 mt-4 btn btn-block btn-info"></button>
+                    <button id="clear-history-btn" class="col-8 mt-4 btn btn-block btn-info"> Clear History</button>
+                </span>
+            </div>
+        
+            <div id="weather-content" class="col-12 col-md-9">
+              <div class="row">
+                <div id="current-weather" class="col-12 border border-3 border-secondary">
+                    <h3>Current Weather: </h3>
+                   
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <h3>5-Day Forcast</h3>
+                    </div>
+                </div>
+                <div id="5-day-forcast" class="row">
+                    <div class="col-12 col-md-6 col-lg-4 forcast-day mb-3">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Date</h5>
+                                <i>Icon</i>
+                                <p class="card-text">Temp</p>
+                                <p class="card-text">Wind</p>
+                                <p class="card-text">Humidity</p>
+                            </div>    
+                        </div>
+                    </div>
+                </div>    
+
+                </div> 
+              </div>     
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>made by: Bradley Kennett</p>
+    </footer>
+
+
+    <script href="./assets/script.js"></script>
 </body>
 </html>
+<!-- GIVEN a weather dashboard with form inputs
+WHEN I search for a city
+THEN I am presented with current and future conditions for that city and that city is added to the search history
+WHEN I view current weather conditions for that city
+THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, the wind speed, and the UV index
+WHEN I view the UV index
+THEN I am presented with a color that indicates whether the conditions are favorable, moderate, or severe
+WHEN I view future weather conditions for that city
+THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
+WHEN I click on a city in the search history
+THEN I am again presented with current and future conditions for that city -->

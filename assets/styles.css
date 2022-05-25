@@ -1,0 +1,10 @@
+
+
+
+
+ .header {
+    background-color: aqua;
+    background:-webkit-linear-gradient(right, yellow, aqua);
+    height: 80px;
+    
+} 
