@@ -1,10 +1,16 @@
 
 
 
-
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
  .header {
     background-color: aqua;
     background:-webkit-linear-gradient(right, yellow, aqua);
     height: 80px;
     
 } 
+
+.card {
+    background-color: lightskyblue;
+}

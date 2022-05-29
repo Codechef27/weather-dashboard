@@ -12,53 +12,109 @@
     <header class="container.fluid d-flex justify-content-center align-items-center text-center h1 header">Weather Dashboard</header>
     <main class=" height-100% container-fluid">
         <section class="row">
-            <div class="col-12 col-md-3 text-center">
+            <section class="col-12 col-md-3 text-center">
                 <h3>Search By City:</h3>
-                <input id="search-by-city" class="m-2 col-8" type="text" autofocus="true" placeholder="Enter a City">
-                <button id="search-btn" class="mt-2 col-8 btn btn-block btn-info">Search</button>
+                <div><input type="text" id="city-input" class="m-2 col-8" autofocus="true" placeholder="Enter a City">
+                <button onclick="getCity()" type="submit" class="mt-2 col-8 btn btn-block btn-info">Search</button>
                 <div class="mt-4 border-bottom border-secondary border-4"></div>
                 <span id="search-history" class=" text-center " >
                     <button id="search-history-btn" class="col-8 mt-4 btn btn-block btn-info"></button>
                     <button id="clear-history-btn" class="col-8 mt-4 btn btn-block btn-info"> Clear History</button>
                 </span>
-            </div>
+                </div>
+            </section>
         
             <div id="weather-content" class="col-12 col-md-9">
               <div class="row">
                 <div id="current-weather" class="col-12 border border-3 border-secondary">
                     <h3>Current Weather: </h3>
-                   
-                </div>
-                <div class="row">
-                    <div class="col-12">
-                        <h3>5-Day Forcast</h3>
+                    <span><h2 id="city-name"></h2></span>
+                    <div class="col-12 mb-3">
+                        <div class="card">
+                            <div id="day" class="card-body">
+                                <h5 id="current-day" class="card-title"></h5>
+                                <img id="current-icon"></img>
+                                <p id="current-temp" class="card-text"></p>
+                                <p id="current-wind" class="card-text"></p>
+                                <p id="humidity" class="card-text"></p>
+                                <p id="uv-index" class="card-text"></p>
+                            </div>
+                        </div>       
                     </div>
                 </div>
+            </div>
+
+            <section>   
+                <div class="col-12">
+                    <h3>5-Day Forcast</h3>
+                </div>
+                
                 <div id="5-day-forcast" class="row">
-                    <div class="col-12 col-md-6 col-lg-4 forcast-day mb-3">
+                    <div class="col-12 col-md-3 col-lg-2 forcast-day mb-3">
                         <div class="card">
-                            <div class="card-body">
-                                <h5 class="card-title">Date</h5>
-                                <i>Icon</i>
-                                <p class="card-text">Temp</p>
-                                <p class="card-text">Wind</p>
-                                <p class="card-text">Humidity</p>
+                            <div id ="day" class="card-body">
+                                <h5 id="date" class="card-title">date</h5>
+                                <i id="icon">icon</i>
+                                <p id="temp" class="card-text"></p>
+                                <p id="wind" class="card-text">Wind</p>
+                                <p id="humidity" class="card-text">Humidity</p>
                             </div>    
-                        </div>
+                        </div>      
+                    </div>
+                    <div class="col-12 col-md-3 col-lg-2 forcast-day mb-3">
+                        <div class="card">
+                            <div id="day" class="card-body">
+                                <h5 id="date" class="card-title">date</h5>
+                                <i id="icon">icon</i>
+                                <p id="temp" class="card-text">temp</p>
+                                <p id="wind" class="card-text">Wind</p>
+                                <p id="humidity" class="card-text">Humidity</p>
+                            </div>    
+                        </div>      
+                    </div>
+                    <div class="col-12 col-md-3 col-lg-2 forcast-day mb-3">
+                        <div class="card">
+                            <div id="day" class="card-body">
+                                <h5 id="date" class="card-title">date</h5>
+                                <i id="icon">icon</i>
+                                <p id="temp" class="card-text">temp</p>
+                                <p id="wind" class="card-text">Wind</p>
+                                <p id="humidity" class="card-text">Humidity</p>
+                            </div>    
+                        </div>      
+                    </div>
+                    <div class="col-12 col-md-3 col-lg-2 forcast-day mb-3">
+                        <div class="card">
+                            <div id="day" class="card-body">
+                                <h5 id="date" class="card-title">date</h5>
+                                <i id="icon">icon</i>
+                                <p id="temp" class="card-text">temp</p>
+                                <p id="wind" class="card-text">Wind</p>
+                                <p id="humidity" class="card-text">Humidity</p>
+                            </div>    
+                        </div>      
+                    </div>
+                    <div class="col-12 col-md-3 col-lg-2 forcast-day mb-3">
+                        <div class="card">
+                            <div id="day" class="card-body">
+                                <h5 id="date" class="card-title">date</h5>
+                                <i id="icon">icon</i>
+                                <p id="temp" class="card-text">temp</p>
+                                <p id="wind" class="card-text">Wind</p>
+                                <p id="humidity" class="card-text">Humidity</p>
+                            </div>    
+                        </div>      
                     </div>
                 </div>    
-
-                </div> 
-              </div>     
-            </div>
+            </section>
         </section>
     </main>
     <footer>
         <p>made by: Bradley Kennett</p>
     </footer>
 
-
-    <script href="./assets/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script src ="./assets/script.js"></script>
 </body>
 </html>
 <!-- GIVEN a weather dashboard with form inputs
