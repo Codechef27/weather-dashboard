@@ -12,13 +12,11 @@
 
 // var apiKey = "9427e8fb1e4c72e3e0458c62e5a629d6";
 
-// var apiUrl = "https://api.openweathermap.org/data/2.5/forecast?q=orlando&appid=9427e8fb1e4c72e3e0458c62e5a629d6";
-// var uviColor = document.querySelector("uvi-color")
-
 var date = moment().format('dddd, MMM Do.');
 var currentDay = document.getElementById("current-day")
 
 function getCity(){
+    
     const newCity = document.getElementById("city-input");
     const cityName = document.getElementById("city-name");  
     cityName.innerHTML = "--" + newCity.value +"--" 
@@ -40,25 +38,20 @@ function getCity(){
         fetch("https://api.openweathermap.org/data/2.5/onecall?lat=" +lat+ "&lon=" +lon+ "&units=imperial&appid=9427e8fb1e4c72e3e0458c62e5a629d6")
         .then(response => response.json())
         .then(function(response) {
-         var uviEl = document.getElementById("uv-index").innerHTML = "UV-Index: " + (response.current.uvi);
-        //  var uviSeverity = response.current.uvi;
-        //  var uvColor = uviEl;
-        //  if ( uviSeverity < 3 ) {
-        //      uvColor.classList.add("uvilow");     
-        //  }else if (uviSeverity > 3) {
-        //      uvColor.classList.add("uvimedium");
-        //  } else {
-        //      uvColor.classList.add("uvihigh");
-        //  }
-        // if (data.current.uvi < 3){
-        //     currentCityUvi.classList.add("uvLow");
-        //   } else if (data.current.uvi > 2 && data.current.uvi < 8) {
-        //     currentCityUvi.classList.add("uvMed");
-        //   } else {
-        //     currentCityUvi.classList.add("uvHigh");
-        //   }
-         
+         document.getElementById("uv-index").innerHTML = "UV-Index: " + (response.current.uvi);
+         var uviSeverity = response.current.uvi;
+
+         var uviEl = document.getElementById("uv-index");
+         if (uviSeverity < 3){
+             uviEl.classList.add("uvilow")
+           } else if (uviSeverity > 2 && uviSeverity < 6) {
+             uviEl.classList.add("uvimedium")
+           } else {
+             uviEl.classList.add("uvihigh")
+           };
         });
+         
+        
 
         fetch("https://api.openweathermap.org/data/2.5/forecast?q="+newCity.value+ "&units=imperial&appid=9427e8fb1e4c72e3e0458c62e5a629d6")
         .then(response => response.json())
@@ -108,20 +101,45 @@ function getCity(){
         var date5 = moment().add(5,'days').format('dddd, MMM Do');   
         document.getElementById("forcast-date4").innerHTML = date5;
 
-        
-
-
-    
-    
-
-        
-    
-
-    });
-    
-    
+    });   
 
 };
+window.addEventListener("load", function() {
+    
+    var entry = JSON.parse(localStorage.getItem("searchHistory"))
+        
+    searchHistory = (entry) ? entry : [];
+
+    
+    for (i = 0; i < searchHistory.length; i++) {
+        createSearchHistoryBtn(searchHistory[i]);
+    }
+
+    if (entry) {
+        apiCalls(searchHistory[searchHistory.length - 1]);
+    }
+})
+
+// var saveSearchHistory = function(newCity){
+//     .localStorage.setItem()
+// }
+var searchHistory = []
+function createSearchHistoryBtn(value) {
+    
+    var newEl = document.createElement("button");
+    
+    newEl.classList.add("col-8", "mt-4", "btn", "btn-block", "btn-info");
+    
+    newEl.textContent = value.toUpperCase();
+
+    historyContainer.appendChild(newEl);
+
+    
+    newEl.addEventListener("click", function() {
+    
+        getCity(newEl.textContent.toLowerCase());
+    })
+}
 
 
 
