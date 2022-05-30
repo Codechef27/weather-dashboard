@@ -26,3 +26,7 @@ This application is designed for the user to search a city. The search will rend
 made by Bradley Kennett. 
 
 ## img
+
+
+https://user-images.githubusercontent.com/99765357/170923194-aadec497-7b61-40b7-80ee-e41598d639c0.mp4
+
